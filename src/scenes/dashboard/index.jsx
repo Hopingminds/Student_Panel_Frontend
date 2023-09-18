@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   const fetchData1 = async () => {
  
-    const url = "/getSingleData";
+    const url = "http://www.apistudentpanel.hopingminds.tech/getSingleData";
 
     try {
       const response = await axios.get(url);

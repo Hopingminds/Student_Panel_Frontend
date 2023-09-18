@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchData = async (selectedDate) => {
   try {
-    const url = "/getDateData";
+    const url = "http://www.apistudentpanel.hopingminds.tech/getDateData";
     const response = await axios.get(url, {
       params: {
         date: selectedDate,

@@ -7,7 +7,7 @@ const QuestionWiseAnalysis = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const url = 'http://192.168.1.22:3002/api/questions';
+        const url = 'http://www.apistudentpanel.hopingminds.tech/api/questions';
         const response = await axios.get(url);
         setQuestions(response.data);
       } catch (error) {

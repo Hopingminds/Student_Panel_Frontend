@@ -9,7 +9,7 @@ function NewAnalyticsReport({ data, selectedGraph }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = "/getSingleData";
+      const url = "http://www.apistudentpanel.hopingminds.tech/getSingleData";
 
       let data = await axios.get(url, {
         params: {

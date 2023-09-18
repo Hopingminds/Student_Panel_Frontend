@@ -18,7 +18,7 @@ const NewAnal = ({ selectedDate, setSelectedDate }) => {
   useEffect(() => {
     const fetchDates = async () => {
       try {
-        const url = '/getSingleData';
+        const url = 'http://www.apistudentpanel.hopingminds.tech/getSingleData';
         const response = await axios.get(url);
         const datesData = response.data.map(date => {
           const dateObject = new Date(date.Date);

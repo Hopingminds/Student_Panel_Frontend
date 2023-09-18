@@ -47,7 +47,7 @@ const Total = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = '/getSingleData';
+        const url = 'http://www.apistudentpanel.hopingminds.tech/getSingleData';
         const response = await axios.get(url);
         const data = response.data;
         console.log("testshare", data);
