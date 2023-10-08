@@ -36,7 +36,7 @@ function NewAnalyticsReport({ data, selectedGraph }) {
 
         <div className="w-full">
      
-          {data1&&data1.map((item) => {
+          {data.map((item) => {
             const dateObject = new Date(item.Date);
             const formattedDate = dateObject.toLocaleDateString("en-US", {
               year: "numeric",
