@@ -13,7 +13,7 @@ import Notifications from "./notification";
 import axios from 'axios'
 // data is going to be sent to the server at port 3000
 axios.defaults.baseURL = "https://apistudentpanel.hopingminds.tech";
-// axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "http://localhost:3001";
 
 axios.defaults.withCredentials = true;
 

@@ -9,6 +9,7 @@ import QuestionWiseAnalysis from "./QuestionWiseAnalysis.jsx";
 const Analytics = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const { loading, user } = useContext(UserContext);
+  const [selectedGraph, setSelectedGraph] = useState("Total");
 
   if (!user && !loading) {
     // Redirect the user to the login page
@@ -19,9 +20,9 @@ const Analytics = () => {
     <div className="flex items-center gap-10 shadow-md border ml-10 mt-20 w-3/4">
       <div className="flex flex-col max-h-[630px] overflow-y-auto ">
       
-      <NewAnalytics selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+      <NewAnalytics selectedDate={selectedDate} setSelectedDate={setSelectedDate} selectedGraph ={selectedGraph} setSelectedGraph={setSelectedGraph} />
         <Leaderboard />
-      <GoalWise selectedDate={selectedDate} />
+      <GoalWise selectedDate={selectedDate} selectedGraph={selectedGraph} />
         <QuestionWiseAnalysis />
       </div>
     </div>

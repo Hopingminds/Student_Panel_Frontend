@@ -77,40 +77,43 @@ const RangeSlider = ({ data }) => {
           </label>
           <div>
             <Slider
-              value={data.Tech_Prec?.toFixed(2)}
+              value={data.Tech_Prec?data.Tech_Prec.toFixed(2):''}
+              // value={data.Tech_Prec?.toFixed(2)}
               max={100}
               valueLabelDisplay="auto"
-              aria-label={`Technical - ${formatPercentage(data.Tech_Prec)}%`}
+              aria-label={`Technical - ${data.Tech_Prec? formatPercentage(data.Tech_Prec): 0}%`}
               sx={{ '& .MuiSlider-track': { backgroundColor: getBackgroundColor(data.Tech_Prec) } }}
             />
           </div>
           <span style={{ fontWeight: 'bold', float: 'right' }}>
-            {data.Tech_Prec && formatPercentage(data?.Tech_Prec)}%
+            {data.Tech_Prec ? data.Tech_Prec && formatPercentage(data?.Tech_Prec):0}%
           </span>
 
           <label htmlFor={`rangeSlider-${data.id}-2`}>Aptitude</label>
           <div>
             <Slider
-              value={data.Apti_Prec.toFixed(2)}
+              value={data.Apti_Prec?data.Apti_Prec.toFixed(2):''}
+              // value={data.Apti_Prec.toFixed(2)}
               max={100}
               valueLabelDisplay="auto"
-              aria-label={`Aptitude - ${formatPercentage(data.Apti_Prec)}%`}
+              aria-label={`Aptitude - ${data.Apti_Prec? formatPercentage(data.Apti_Prec):0}%`}
               sx={{ '& .MuiSlider-track': { backgroundColor: getBackgroundColor(data.Apti_Prec) } }}
             />
           </div>
-          <span style={{ fontWeight: 'bold', float: 'right' }}>{formatPercentage(data.Apti_Prec)}%</span>
+          <span style={{ fontWeight: 'bold', float: 'right' }}>{data.Apti_Prec? formatPercentage(data.Apti_Prec): 0}%</span>
 
           <label htmlFor={`rangeSlider-${data.id}-3`}>English</label>
           <div>
             <Slider
-              value={data.English_Prec.toFixed(2)}
+              value={data.English_Prec?data.English_Prec.toFixed(2):''}
+              // value={data.English_Prec.toFixed(2)}
               max={100}
               valueLabelDisplay="auto"
-              aria-label={`English - ${formatPercentage(data.English_Prec)}%`}
+              aria-label={`English - ${data.Apti_Prec ? formatPercentage(data.English_Prec): 0}%`}
               sx={{ '& .MuiSlider-track': { backgroundColor: getBackgroundColor(data.English_Prec) } }}
             />
           </div>
-          <span style={{ fontWeight: 'bold', float: 'right' }}>{formatPercentage(data.English_Prec)}%</span>
+          <span style={{ fontWeight: 'bold', float: 'right' }}>{data.English_Prec ? formatPercentage(data.English_Prec):0}%</span>
         </div>
       </Box>
     </ThemeProvider>

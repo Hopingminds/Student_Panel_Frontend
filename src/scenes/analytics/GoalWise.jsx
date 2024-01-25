@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { fetchData } from "./FetchDate";
+import { SinglefetchData, fetchData } from "./FetchDate";
 import { Bar } from 'react-chartjs-2';
 
-const GoalWise = ({ selectedDate }) => {
+const GoalWise = ({ selectedDate ,selectedGraph}) => {
   const [data, setData] = useState(null);
   const options = {
     maintainAspectRatio: true,
@@ -43,18 +43,20 @@ const GoalWise = ({ selectedDate }) => {
   
   useEffect(() => {
     const fetchDataForSelectedDate = async () => {
-      if (selectedDate) {
+      if (selectedDate && selectedGraph =='Total') {
         const data = await fetchData(selectedDate);
         setData(data);
       }
     };
     fetchDataForSelectedDate();
   }, [selectedDate]);
-
+  
   // Function to extract specific data for the chart
   const getChartData = () => {
+    
+    
     if (!data) return null;
-
+   
     const chartData = {
       labels: ['TotalQuestions', 'TotalCorrect', 'Totalincorrect', 'Totalskipped'],
       datasets: [
@@ -82,6 +84,7 @@ const GoalWise = ({ selectedDate }) => {
         },
       ],
     };
+
 
     return chartData;
   };

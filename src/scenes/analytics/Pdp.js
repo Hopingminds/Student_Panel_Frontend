@@ -45,10 +45,9 @@ const Total = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = '/getSingleData';
+        const url = '/getPDDate';
         const response = await axios.get(url);
         const data = response.data;
-        console.log("testshare", data);
         setData1(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -62,13 +61,13 @@ const Total = () => {
     if (!data1 || data1.length === 0) {
       return {}; // Return empty object if data1 is undefined or empty
     }
-
+    
     const labels = data1.map((item) => {
       const dateObject = new Date(item.Date);
       const formattedDate = dateObject.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
       return formattedDate;});
-    const marks = data1.map((item) => item.English);
-
+      const marks = data1.map((item) => item.PD);
+      
     return {
       labels: labels,
       datasets: [

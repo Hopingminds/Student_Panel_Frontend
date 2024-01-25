@@ -21,6 +21,7 @@ const TopSection = ({data1}) => {
     setIsClassesAttendedHovered(false);
     setIsTestAttemptedHovered(false);
   };
+  
 
   return (
     <div className="lg:text-lg sm:grid grid-cols-4 pb-3 mb-3 text-sm sm:w-full">

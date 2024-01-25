@@ -23,7 +23,6 @@ const MyCarousel = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   return (
     <div id="carouselExampleControls" className="carousel carousel-dark slide" data-bs-ride="carousel">
       <div className="carousel-inner">

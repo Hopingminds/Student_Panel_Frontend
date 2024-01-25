@@ -13,7 +13,6 @@ const Dashboard = () => {
   const [latestDataDate, setLatestDataDate] = useState(null);
 
   const { loading, user, setUser,isLoading,setIsLoading } = useContext(UserContext);
-  console.log("user:::::", user);
 
 
   const fetchData1 = async () => {
@@ -26,7 +25,6 @@ const Dashboard = () => {
         (a, b) => new Date(b.Date) - new Date(a.Date)
       );
       setData1(sortedData);
-      console.log("Data1:::::::",data1)
 
       // Get the latest date from the fetched data and set it to the state
       if (sortedData.length > 0) {
@@ -88,7 +86,7 @@ if (!user) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between">
           <p className=" text-2xl mb-2 sm:mb-0">Welcome to your Dashboard</p>
         
-        </div>
+       </div>
           <Navigation className=""/>
 
         <p className="flex flex-row-reverse text-2xl mr-5 my-2 font-bold">

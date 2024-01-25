@@ -15,3 +15,29 @@ export const fetchData = async (selectedDate) => {
     return null;
   }
 };
+
+export const SinglefetchData = async (selectedDate,selectedGraph) => {
+  try {
+    var url='';
+
+    if(selectedGraph === "Total"){
+      url = "/getDateData";  
+   }else if(selectedGraph === "Apti"){
+     url = '/getSingleAptiUsers';
+   }else if(selectedGraph === "Pdp"){
+     url = '/getSinglePDUsers';
+    }else if(selectedGraph === "Technical"){
+     url = '/getSingleTechUsers';
+   }
+     
+    const response = await axios.get(url, {
+      params: {
+        date: selectedDate,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
+};

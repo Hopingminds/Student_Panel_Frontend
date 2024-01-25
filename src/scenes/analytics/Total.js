@@ -50,7 +50,6 @@ const Total = () => {
         const url = '/getSingleData';
         const response = await axios.get(url);
         const data = response.data;
-        console.log("testshare", data);
         setData1(data);
       } catch (error) {
         console.error('Error fetching data:', error);

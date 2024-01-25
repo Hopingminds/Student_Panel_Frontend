@@ -5,37 +5,11 @@ function NewAnalyticsReport({ data, selectedGraph }) {
   const [data1, setData1] = useState();
   const [entriesPerPage, setEntriesPerPage] = useState(5);
 
-  console.log("selectedGraph::: from new ", selectedGraph);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = "/getSingleData";
-
-      let data = await axios.get(url, {
-        params: {
-          _limit: entriesPerPage,
-        },
-      });
-      console.log("data:::::::", data);
-
-      if (data) {
-        setData1(data.data);
-        //  console.log("data1::::",data1)
-      }
-    };
-    fetchData();
-  }, [entriesPerPage]);
-
-  console.log("data1:::", data1);
 
   return (
     <div className="mainClass container w-96">
       <div className=" ">
-
-
-
         <div className="w-full">
-     
           {data.map((item) => {
             const dateObject = new Date(item.Date);
             const formattedDate = dateObject.toLocaleDateString("en-US", {
@@ -57,7 +31,7 @@ function NewAnalyticsReport({ data, selectedGraph }) {
                     <p className="py-1">Incorrect: {item.Totalincorrect}</p><hr />
                     <p className="py-1">Skipped: {item.Totalskipped}</p><hr />
                     <p className="py-1">Marks Obtained: {item.Total_Marks_obt}</p><hr />
-                    <p className="py-1">Marks Percentage: {item.Overall_Prec.toFixed(2)}%</p><hr />
+                    <p className="py-1">Marks Percentage: {item.Overall_Prec ? item.Overall_Prec.toFixed(2) : 0}%</p><hr />
                   </div>
                 )}
                 {selectedGraph === "Apti" && (
@@ -65,13 +39,13 @@ function NewAnalyticsReport({ data, selectedGraph }) {
                     <p className="py-1">Attempted On: {formattedDate}</p>
                     <hr />
                     <p className="py-1">Rank: {item.Rank}</p><hr />
-                    <p className="py-1">Total Time Taken: {item.TotalTimeTaken}</p><hr />
-                    <p className="py-1">TOTALTIME: {item.TimeDuration}</p><hr />
+                    <p className="py-1">Total Time Taken: {item.AptiTimeTaken}</p><hr />
+                    <p className="py-1">TOTALTIME: {item.Aptiincorrect}</p><hr />
                     <p className="py-1">Correct: {item.Apticorrect}</p><hr />
-                    <p className="py-1">Incorrect: {item.Totalincorrect}</p><hr />
+                    <p className="py-1">Incorrect: {item.Aptiincorrect}</p><hr />
                     <p className="py-1">Skipped: {item.AptiSkipped}</p><hr />
                     <p className="py-1">Marks Obtained: {item.Apti}</p><hr />
-                    <p className="py-1">Marks Percentage: {item.Apti_Prec.toFixed(2)}%</p><hr />
+                    <p className="py-1">Marks Percentage: {item.Apti_Prec ? item.Apti_Prec.toFixed(2) : 0}%</p><hr />
                   </div>
                 )}
                 {selectedGraph === "Pdp" && (
@@ -79,13 +53,13 @@ function NewAnalyticsReport({ data, selectedGraph }) {
                     <p className="py-1">Attempted On: {formattedDate}</p>
                     <hr />
                     <p  className="py-1">Rank: {item.Rank}</p><hr />
-                    <p className="py-1">Total Time Taken: {item.Pdtime}</p><hr />
-                    <p className="py-1">TOTAL TIME: {item.TimeDuration}</p><hr />
+                    <p className="py-1">Total Time Taken: {item.PDTotalTimeTaken}</p><hr />
+                    <p className="py-1">TOTAL TIME: {item.PDTimeDuration}</p><hr />
                     <p className="py-1">Correct: {item.PDcorrect}</p><hr />
                     <p className="py-1">Incorrect: {item.PDincorrect}</p><hr />
-                    <p className="py-1">Skipped: {item.Totalskipped}</p><hr />
-                    <p className="py-1">Marks Obtained: {item.Total_Marks_obt}</p><hr />
-                    <p className="py-1">Marks Percentage: {item.Tech_Prec?.toFixed(2)}%</p><hr />
+                    <p className="py-1">Skipped: {item.PdSkipped}</p><hr />
+                    <p className="py-1">Marks Obtained: {item.PD}</p><hr />
+                    <p className="py-1">Marks Percentage: {item.PD_Prec ? item.PD_Prec.toFixed(2) : 0}%</p><hr />
                   </div>
                 )}
                 {selectedGraph === "Technical" && (
@@ -96,13 +70,13 @@ function NewAnalyticsReport({ data, selectedGraph }) {
                     </p>
                     <hr />
                     <p className="py-1">Rank:{item.Rank}</p><hr />
-                    <p className="py-1">Total Time Taken:{item.Techtime}</p><hr />
-                    <p className="py-1">TOTAL TIME:{item.TimeDuration}</p><hr />
-                    <p className="py-1">Correct:{item.techcorrect}</p><hr />
-                    <p className="py-1">Incorrect:{item.techincorrect}</p><hr />
-                    <p className="py-1">Skipped:{item.TechSkipped}</p><hr />
+                    <p className="py-1">Total Time Taken:{item.TECHTotalTimeTaken}</p><hr />
+                    <p className="py-1">TOTAL TIME:{item.TECHTimeDuration}</p><hr />
+                    <p className="py-1">Correct:{item.TECHcorrect}</p><hr />
+                    <p className="py-1">Incorrect:{item.TECHincorrect}</p><hr />
+                    <p className="py-1">Skipped:{item.TECHSkipped}</p><hr />
                     <p className="py-1">Marks Obtained:{item.Tech}</p><hr />
-                    <p className="py-1">Marks Percentage:{item.Tech_Prec?.toFixed(2)} %</p><hr />
+                    <p className="py-1">Marks Percentage:{item.TECH_Prec ? item.TECH_Prec.toFixed(2) : 0} %</p><hr />
                   </div>
                 )}
               </>
